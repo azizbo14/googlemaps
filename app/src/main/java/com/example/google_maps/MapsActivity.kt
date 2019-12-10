@@ -1,31 +1,27 @@
 package com.example.google_maps
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.Manifest
 import android.content.pm.PackageManager
 import android.content.res.Resources
+import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-
-import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
+import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
-import com.google.android.gms.maps.model.*
 import java.util.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     private lateinit var map: GoogleMap
 
-    //==============================================================================================
-    // setting GPS
     private val REQUEST_LOCATION_PERMISSION = 1
     private fun isPermissionGranted() : Boolean {
         return ContextCompat.checkSelfPermission(
@@ -56,7 +52,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             }
         }
     }
-//==================================================================================================
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -114,8 +109,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         else -> super.onOptionsItemSelected(item)
     }
 
-    //==============================================================================================
-    // buat nambah poin lokasi sendiri pake tap
 
     private fun setMapLongClick(map: GoogleMap) {
         map.setOnMapLongClickListener { latLng ->
@@ -135,8 +128,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             )
         }
     }
-    //==============================================================================================
-    // klik lokasi tersedia map buat liat detailnya
 
     private fun setPoiClick(map: GoogleMap) {
         map.setOnPoiClickListener { poi ->
@@ -154,14 +145,31 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
         map = googleMap
         //==============================================================================================
+        //aktifin dibawah buat tandain map kost biru pak suroyo
 
-//Proses pemanggilan function
+//        val latitude = -7.750567
+//        val longitude = 110.355303
+//
+//        val homeLatLng = LatLng(latitude, longitude)
+//       val zoomLevel = 15f
+//
+//        map.moveCamera(CameraUpdateFactory.newLatLngZoom(homeLatLng, zoomLevel))
+//        map.addMarker(MarkerOptions().position(homeLatLng))
+        //==============================================================================================
+
         setMapLongClick(map)
         setPoiClick(map)
         setMapStyle(map)
         enableMyLocation()
 
+        //==============================================================================================
+        // tambah gambar di point homeLatIng (overlay)
 
+//        val overlaySize = 100f
+//        val androidOverlay = GroundOverlayOptions()
+//            .image(BitmapDescriptorFactory.fromResource(R.drawable.android))
+//            .position(homeLatLng, overlaySize)
+//        map.addGroundOverlay(androidOverlay)
+        //==============================================================================================
     }
 }
-

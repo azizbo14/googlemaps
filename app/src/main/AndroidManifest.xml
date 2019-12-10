@@ -22,11 +22,11 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDKwYQKQy1ypFMJWsFhqj7fVuwI2-CoVno" />
+            android:value="AIzaSyBUcySDQucwjg1tycl25A8tAbCuEX8Z4bg" />
 
         <activity
             android:name=".MapsActivity"
-            android:label="Map">
+            android:label="Google maps">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
