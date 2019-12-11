@@ -162,14 +162,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         setMapStyle(map)
         enableMyLocation()
 
-        //==============================================================================================
-        // tambah gambar di point homeLatIng (overlay)
+        // tambah gambar di lokasi anda
 
 //        val overlaySize = 100f
-//        val androidOverlay = GroundOverlayOptions()
-//            .image(BitmapDescriptorFactory.fromResource(R.drawable.android))
-//            .position(homeLatLng, overlaySize)
+//       val androidOverlay = GroundOverlayOptions()
+//            .image(BitmapDescriptorFactory.fromResource(R.drawable.logo_android))
+//           .position(homeLatLng, overlaySize)
 //        map.addGroundOverlay(androidOverlay)
-        //==============================================================================================
+
     }
 }
